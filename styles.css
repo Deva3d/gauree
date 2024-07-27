@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f4;
+    position: relative; /* Ensure that the menu can be positioned above other elements */
+}
+
+#icon-container {
+    display: flex;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure icons are above other content */
+}
+
+#home-icon, #menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+#home-icon:hover, #menu-icon:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}
+
+#menu {
+    display: none;
+    width: 160px;
+    position: fixed;
+    top: 80px; /* Positioned below the menu icon */
+    left: 20px;
+    background-color: black;
+    overflow: hidden;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000; /* Ensure the menu is above other content */
+}
+
+#menu.expanded {
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Ensures the menu slides in from the top */
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+#menu ul li:hover {
+    background-color: #555;
+}
+
+#content {
+    flex-grow: 1;
+    padding: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 80px auto 0;
+    position: relative; /* Ensure that content does not overlap the menu */
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#chapters {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.chapter {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+.chapter a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: block;
+}
+
+.chapter:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.chapter a:hover {
+    color: #007bff;
+}
+
+.chapter:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+.chapter:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.home-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    background: url('gauree.jpg') no-repeat center center/cover; /* Background image */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.home-message h1 {
+    font-size: 2.5em; /* Adjusted for better visibility on smaller screens */
+    margin: 0;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.home-message p {
+    font-size: 1.2em; /* Adjusted for better visibility on smaller screens */
+    margin-top: 10px;
+    animation: fadeInUp 2s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.home-message::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Increased opacity for better text visibility */
+    z-index: -1;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .home-message h1 {
+        font-size: 1.8em; /* Smaller font size for smaller screens */
+    }
+
+    .home-message p {
+        font-size: 1em; /* Smaller font size for smaller screens */
+    }
+}

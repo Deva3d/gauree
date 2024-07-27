@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="icon-container">
+        <div id="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <div id="home-icon" onclick="loadHome()">&#8962;</div>
+    </div>
+    <nav id="menu">
+        <ul>
+            <li onclick="loadContent('maths_part_1')">Maths Part 1</li>
+            <li onclick="loadContent('maths_part_2')">Maths Part 2</li>
+            <li onclick="loadContent('science_part_1')">Science Part 1</li>
+            <li onclick="loadContent('science_part_2')">Science Part 2</li>
+            <li onclick="loadContent('geography')">Geography</li>
+            <li onclick="loadContent('history')">History</li>
+        </ul>
+    </nav>
+    <div id="content">
+        <!-- Content will be loaded here by JavaScript -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
